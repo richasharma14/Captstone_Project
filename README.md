@@ -70,14 +70,6 @@ mysql << create database creditcard_capstone
 ## Console-based Python program to satisfy System Requirements for Transaction and Customer
 Details Modules.
 
-1.The total number and total values of transactions for branches in a given state.
-
-![menu_1.png](docs%2Fmenu_1.png)
-
-2.To modify the existing account details of a customer
-
-![menu_2.png](docs%2Fmenu_2.png)
-![menu_2.1.png](docs%2Fmenu_2.1.png)
 
 ## Data analysis and Visualization
 To analyze and visualize the data according to the requirements.
