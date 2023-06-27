@@ -1,27 +1,16 @@
-# Capstone: Retrieving, Analyzing, and Visualizing Data with Python
+# Capstone: Data Retrieval, Analysis, and Visualization with Python
 ## Introduction
-This capstone project is to manage an ETL process for a Loan Application dataset and 
-a Credit Card dataset. 
 
-**Credit Card System**: The Credit Card System database is an independent system developed for managing activities such as 
-registering new customers and approving or canceling requests, etc., using the architecture.
+The capstone project involves developing an ETL (Extract, Transform, Load) process for two datasets: Credit Card System and Loan Application.
 
-**Loan Application**: Banks deal in all home loans. They have a presence across all urban, semi-urban,and rural areas.
-Customers first apply for a home loan; after that, a company will validate the customer's eligibility
-for a loan.
+The **Credit Card System** dataset represents a database used for managing credit card-related activities such as customer registration, request approvals or cancellations, and other related operations. It follows a specific architecture designed for this purpose.
+
+The **Loan Application** dataset pertains to a bank's home loan operations. The bank operates in various areas, including urban, semi-urban, and rural regions. Customers initiate the loan application process, and the company validates their eligibility for the loan.
+
+The goal of the capstone project is to design and implement an ETL process that extracts data from these two datasets, performs necessary transformations or data manipulations, and loads the transformed data into a target destination. This ETL process ensures the seamless integration and synchronization of the Credit Card System and Loan Application data, facilitating efficient data management and analysis for the bank.
 ## Architecture
- ![img_1.png](docs/img_1.png)
+ ![arch.jpg](screenshots/arch.jpg)
 
-### Virtual Environment Setup:
-* python -m venv venv
-* pip list 
-
-To activate the environment
-* venv\Scripts\activate.bat
-### Requirements
-Top-level requirements are stored in requirements.txt.
-* pip freeze > requirements.txt
-to freeze all sub dependencies into requirements.txt.
 
 ### Installation Guide
 Necessary dependencies before running this application: 
@@ -32,20 +21,19 @@ Necessary dependencies before running this application:
 * pip install seaborn
 * pip install regex
 * pip install numpy
-* pip install pyinputplus
 * pip install datetime
 * pip install pymysql
 * pip install requests
 
 ### Technologies
-Language: Python 3.9.12
-Database:MariaDB and HeidiSQL for GUI
-Libraries used in python:
-Pandas
-Matplotlib
-Seaborn
-requests
-Apache Spark(Spark Core,Spark Sql)
+* Language: Python 3.10
+* Database:MYSQL
+* Libraries used in python:
+* Pandas
+* Matplotlib
+* Seaborn
+* requests
+* Apache Spark(Spark Core,Spark Sql)
 
 ### Business Requirements - ETL
 A credit card is issued to users to enact the payment system. It allows the 
@@ -53,12 +41,13 @@ cardholder to access financial services in exchange for the holder's promise to 
 for them later. Below are three files that contain the customer’s transaction information 
 and inventories in the credit card information.
 
-CDW_SAPP_CUSTOMER.JSON: This file has the existing customer details.
-CDW_SAPP_CREDITCARD.JSON: This file contains all credit card transaction information.
-CDW_SAPP_BRANCH.JSON: Each branch’s information and details are recorded in this file.
+* CDW_SAPP_CUSTOMER.JSON: This file has the existing customer details.
+* CDW_SAPP_CREDITCARD.JSON: This file contains all credit card transaction information.
+* CDW_SAPP_BRANCH.JSON: Each branch’s information and details are recorded in this file.
 
 ### Load Credit Card Database (SQL)
 mysql << create database creditcard_capstone
+![Create-Database.jpg](screenshots/Create-Database.jpg)
 ### Python and Pyspark Program to load/write the “Credit Card System Data” into RDBMS(creditcard_capstone).
 
 1. **customer_data.py** - Extract,Transform,Load OF Customer Json Format Data Into
@@ -70,12 +59,11 @@ mysql << create database creditcard_capstone
 3. **branch_data.py** - Extract,Transform,Load OF branch_data Json Format Data Into
                      MySql Database CreditCard_Capstone.
 
-4. **main_etl.py** -
-  CDW_SAPP_CUSTOMER: Table with existing customer details.
-  CDW_SAPP_CREDITCARD: Table contains all credit card transaction information.<br>
-  CDW_SAPP_BRANCH: Each branch’s information and details are recorded in this Table.
 
-![database.png](docs%2Fdatabase.png)
+![Create-Table-CDW-SAPP_loan_application](screenshots/Create-Table-CDW-SAPP_loan_application.jpg)
+![Create-Table-sapp-branch.jpg](screenshots/Create-Table-sapp-branch.jpg)
+![Create-Table-sapp-customer.jpg](screenshots/Create-Table-sapp-customer.jpg)
+![Create-Table-sapp-creditcard.jpg](screenshots/Create-Table-sapp-creditcard.jpg)
 
 ## Application Front-End
 ## Console-based Python program to satisfy System Requirements for Transaction and Customer
