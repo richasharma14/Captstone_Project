@@ -84,7 +84,7 @@ To analyze and visualize the data according to the requirements.
 
 1.Find and plot which transaction type has a high rate of transactions.
 
-![transaction_type.png](docs%2Ftransaction_type.png)
+![Transactions-Types.jpg](screenshots/Transactions-Types.jpg)
 
 2.Find and plot which state has a high number of customers.
 
