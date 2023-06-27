@@ -3,9 +3,9 @@
 
 The capstone project involves developing an ETL (Extract, Transform, Load) process for two datasets: Credit Card System and Loan Application.
 
-The Credit Card System dataset represents a database used for managing credit card-related activities such as customer registration, request approvals or cancellations, and other related operations. It follows a specific architecture designed for this purpose.
+The **Credit Card System** dataset represents a database used for managing credit card-related activities such as customer registration, request approvals or cancellations, and other related operations. It follows a specific architecture designed for this purpose.
 
-The Loan Application dataset pertains to a bank's home loan operations. The bank operates in various areas, including urban, semi-urban, and rural regions. Customers initiate the loan application process, and the company validates their eligibility for the loan.
+The **Loan Application** dataset pertains to a bank's home loan operations. The bank operates in various areas, including urban, semi-urban, and rural regions. Customers initiate the loan application process, and the company validates their eligibility for the loan.
 
 The goal of the capstone project is to design and implement an ETL process that extracts data from these two datasets, performs necessary transformations or data manipulations, and loads the transformed data into a target destination. This ETL process ensures the seamless integration and synchronization of the Credit Card System and Loan Application data, facilitating efficient data management and analysis for the bank.
 ## Architecture
