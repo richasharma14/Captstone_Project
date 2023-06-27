@@ -60,10 +60,11 @@ mysql << create database creditcard_capstone
                      MySql Database CreditCard_Capstone.
 
 
-![Create-Table-CDW-SAPP_loan_application](screenshots/Create-Table-CDW-SAPP_loan_application.jpg)
-![Create-Table-sapp-branch.jpg](screenshots/Create-Table-sapp-branch.jpg)
 ![Create-Table-sapp-customer.jpg](screenshots/Create-Table-sapp-customer.jpg)
 ![Create-Table-sapp-creditcard.jpg](screenshots/Create-Table-sapp-creditcard.jpg)
+![Create-Table-sapp-branch.jpg](screenshots/Create-Table-sapp-branch.jpg)
+
+
 
 ## Application Front-End
 ## Console-based Python program to satisfy System Requirements for Transaction and Customer
@@ -104,11 +105,7 @@ transactions.
 
 # LOAN application Data API
 
-Banks want to automate the loan eligibility process (in real-time) based on customer details provided while
-filling out the online application form. These details are Gender, Marital Status, Education, 
-Number of Dependents, Income, Loan Amount, Credit History, and others. To automate this process, 
-they have the task of identifying the customer segments to those who are eligible for loan amounts 
-so that they can specifically target these customers. Here they have provided a partial dataset.
+Banks aim to automate the loan eligibility process in real-time by leveraging customer details provided in online application forms. The key customer attributes include Gender, Marital Status, Education, Number of Dependents, Income, Loan Amount, Credit History, and more. The objective is to identify customer segments that meet the eligibility criteria for loan amounts, enabling targeted marketing efforts towards these specific customers. A partial dataset has been provided to facilitate this automation process.
 
 API Endpoint: https://raw.githubusercontent.com/platformps/LoanDataset/main/loan_data.json
 ## Python and Pyspark Program to load/write the “Loan Application Data” into 
@@ -117,17 +114,24 @@ RDBMS (creditcard_capstone)
                  dataset with the status code 200.
 
 **CDW_SAPP_loan_application**: Table with  customer home loans details.
+
+![Create-Table-CDW-SAPP_loan_application](screenshots/Create-Table-CDW-SAPP_loan_application.jpg)
+
 ## Data analysis and Visualization
 1.Find and plot the percentage of applications approved for self-employed applicants.
-![percentage_self_employed.png](docs%2Fpercentage_self_employed.png)
+
+![Self_Employed.jpg](screenshots/Self_Employed.jpg)
 
 
 2.Find the percentage of rejection for married male applicants.
 
-![male_married_1.png](docs%2Fmale_married_1.png)
-![percentage_male_applicants.png](docs%2Fpercentage_male_applicants.png)
+![Rejected-Male-Application.jpg](screenshots/Rejected-Male-Application.jpg)
 
-## Tableau - Loan Application Analysis using Tableau
+3. Find and plot the top three months with the largest transaction data.
 
-![tableau.png](docs%2Ftableau.png)
+ ![Top-3-Month-Largest-Transactions.jpg](screenshots/Top-3-Month-Largest-Transactions.jpg)
 
+4. Find and plot which branch processed the highest total dollar value of healthcare transactions.
+
+ ![healthcare-transactions.jpg](screenshots/healthcare-transactions.jpg)
+   
