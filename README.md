@@ -10,7 +10,7 @@ registering new customers and approving or canceling requests, etc., using the a
 Customers first apply for a home loan; after that, a company will validate the customer's eligibility
 for a loan.
 ## Architecture
- ![img_1.png](docs/img_1.png)
+ ![arch.jpg](screenshots/arch.jpg)
 
 ### Virtual Environment Setup:
 * python -m venv venv
