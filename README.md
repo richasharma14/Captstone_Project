@@ -59,12 +59,11 @@ mysql << create database creditcard_capstone
 3. **branch_data.py** - Extract,Transform,Load OF branch_data Json Format Data Into
                      MySql Database CreditCard_Capstone.
 
-4. **main_etl.py** -
-  CDW_SAPP_CUSTOMER: Table with existing customer details.
-  CDW_SAPP_CREDITCARD: Table contains all credit card transaction information.<br>
-  CDW_SAPP_BRANCH: Each branch’s information and details are recorded in this Table.
 
-![Create-Database.jpg](screenshots/Create-Database.jpg)
+![Create-Table-CDW-SAPP_loan_application](screenshots/Create-Table-CDW-SAPP_loan_application.jpg)
+![Create-Table-sapp-branch.jpg](screenshots/Create-Table-sapp-branch.jpg)
+![Create-Table-sapp-customer.jpg](screenshots/Create-Table-sapp-customer.jpg)
+![Create-Table-sapp-creditcard.jpg](screenshots/Create-Table-sapp-creditcard.jpg)
 
 ## Application Front-End
 ## Console-based Python program to satisfy System Requirements for Transaction and Customer
