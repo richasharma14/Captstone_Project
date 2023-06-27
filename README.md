@@ -88,20 +88,13 @@ To analyze and visualize the data according to the requirements.
 
 2.Find and plot which state has a high number of customers.
 
-![no_customers.png](docs%2Fno_customers.png)
+![State-With-High-Customer.jpg)](screenshots/State-With-High-Customer.jpg)
 
 3.Find and plot the sum of all transactions for the top 10 customers, and which
 customer has the highest transaction amount.hint(use CUST_SSN). 
+!![Top-10-Customer-Transactions.jpg))](screenshots/Top-10-Customer-Transactions.jpg)
 
 
-4.Find and plot the top three months with the largest transaction data.
-
-![top_three_months.png](docs%2Ftop_three_months.png)
-
-5.Find and plot which branch processed the highest total dollar value of healthcare 
-transactions.
-
-![healthcare.png](docs%2Fhealthcare.png)
 
 # LOAN application Data API
 
