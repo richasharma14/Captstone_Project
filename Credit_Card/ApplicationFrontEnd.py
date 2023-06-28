@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit
+import datetime
 
 spark = SparkSession.builder.master("local[1]").appName('Credit_Card').getOrCreate()
 if spark is not None and spark._sc is not None:
@@ -61,14 +62,25 @@ def f():
         except:
             print("you did not enter any number")
 
-
-
 def update_customer_details():
-   ssn= input('Enter the Customer SSN without hyphens\n')
-   try: 
-     update_customer_data_detials(ssn)   
-   except:
-       print('Please enter the correct info')
+    ssn = input('Enter the Customer SSN without hyphens:\n')
+
+    # SSN validation
+    if not ssn.isdigit() or len(ssn) != 9:
+        print('Please enter a valid 9-digit SSN.')
+        return
+
+    try:
+        update_customer_data_detials(ssn)
+    except:
+        print('An error occurred while updating customer details.')
+
+# def update_customer_details():
+#    ssn= input('Enter the Customer SSN without hyphens\n')
+#    try: 
+#      update_customer_data_detials(ssn)   
+#    except:
+#        print('Please enter the correct info')
 
 def update_customer_data_detials(ssn):
     print('Inside the update_customer_data_detials method')
@@ -107,17 +119,39 @@ def update_customer_data_detials(ssn):
     #print('After executing the query')
 
 
-def transactions_detials_date():
-    ssn= input('Enter the Customer SSN \n')
-    startdate= input('Enter start date of trancation \n')
-    endate=input('Enter end date  of trancation \n')
-    try:
+# def transactions_detials_date():
+#     ssn= input('Enter the Customer SSN \n')
+#     startdate= input('Enter start date of trancation \n')
+#     endate=input('Enter end date  of trancation \n')
+#     try:
      
-     get_transactions_detials_date(ssn,startdate,endate)
+#      get_transactions_detials_date(ssn,startdate,endate)
        
-    except:
-       print('Please enter the correct info') 
+#     except:
+#        print('Please enter the correct info') 
 
+def transactions_detials_date():
+    ssn = input('Enter the Customer SSN:\n')
+    start_date = input('Enter the start date of transaction (YYYY-MM-DD):\n')
+    end_date = input('Enter the end date of transaction (YYYY-MM-DD):\n')
+
+    # SSN validation
+    if not ssn.isdigit() or len(ssn) != 9:
+        print('Please enter a valid 9-digit SSN.')
+        return
+
+    # Date validation
+    try:
+        datetime.datetime.strptime(start_date, '%Y-%m-%d')
+        datetime.datetime.strptime(end_date, '%Y-%m-%d')
+    except ValueError:
+        print('Please enter the dates in the format YYYY-MM-DD.')
+        return
+
+    try:
+        get_transactions_detials_date(ssn, start_date, end_date)
+    except:
+        print('An error occurred while fetching transaction details.')
 
 
 def get_transactions_detials_date(ssn,startdate,endate):
@@ -159,25 +193,54 @@ def customer_details():
    df.show()
    
 
-def credit_card_bill():
-    x1= input('Enter the credit card number without spaces \n')
-    x2= input('Enter month of trancation \n')
-    x3=input('Enter year of trancation \n')
-    try:
+# def credit_card_bill():
+#     x1= input('Enter the credit card number without spaces \n')
+#     x2= input('Enter month of trancation \n')
+#     x3=input('Enter year of trancation \n')
+#     try:
         
+#         x2 = int(x2)
+#         x3 = int(x3)
+#         get_credit_card_bill_transactions(x1,x2,x3)
+       
+#     except:
+#        print('Please enter the correct zip code') 
+
+def credit_card_bill():
+    x1 = input('Enter the credit card number without spaces:\n')
+    x2 = input('Enter the month of transaction:\n')
+    x3 = input('Enter the year of transaction:\n')
+
+    # Credit card number validation
+    if not x1.isdigit() or len(x1) != 16:
+        print('Please enter a valid credit card number (16 digits).')
+        return
+
+    # Month validation
+    if not x2.isdigit() or int(x2) < 1 or int(x2) > 12:
+        print('Please enter a valid month (1-12).')
+        return
+
+    # Year validation
+    if not x3.isdigit() or len(x3) != 4:
+        print('Please enter a valid year (4 digits).')
+        return
+
+    try:
         x2 = int(x2)
         x3 = int(x3)
         get_credit_card_bill_transactions(x1,x2,x3)
-       
     except:
-       print('Please enter the correct zip code') 
+        print('An error occurred while fetching the credit card bill transactions.')
+
+
 def get_credit_card_bill_transactions(creditcard, month, year):
     print('Inside the get_credit_card_bill_transactions method')
-    print(f'zipcode={creditcard}, month={month}, year={year}')
+    print(f'creditCardNum={creditcard}, month={month}, year={year}')
 
     query = f"SELECT SUM(TRANSACTION_VALUE) AS total_transaction_value \
           FROM creditcard_capstone.cdw_sapp_credit_card \
-          WHERE CUST_SSN = '{creditcard}' \
+          WHERE CUST_CC_NO = '{creditcard}' \
          AND MONTH(TIMEID) = {month} \
          AND YEAR(TIMEID) = {year}"
     
@@ -210,6 +273,44 @@ def customer_transaction():
     except:
        print('Please enter the correct zip code') 
 
+# def customer_transaction():
+#     while True:
+#         x1 = input('Enter the zip code:\n')
+#         x2 = input('Enter the month of transaction:\n')
+#         x3 = input('Enter the year of transaction:\n')
+
+#         # Zip code validation
+#         if not x1.isdigit() or len(x1) < 5 or len(x1) > 10:
+#             print('Please enter a valid zip code.')
+#             continue
+
+#         # Month validation
+#         if not x2.isdigit() or int(x2) < 1 or int(x2) > 12:
+#             print('Please enter a valid month (1-12).')
+#             continue
+
+#         # Year validation
+#         if not x3.isdigit() or len(x3) != 4:
+#             print('Please enter a valid year (4 digits).')
+#             continue
+
+#         try:
+#             x1 = int(x1)
+#             x2 = int(x2)
+#             x3 = int(x3)
+
+#             if x1 < 10000 or x1 > 999999:
+#                 print('Please enter a valid zip code.')
+#                 continue
+
+#             get_customer_transactions(x1, x2, x3)
+#             break  # Exit the loop if successful
+
+#         except:
+#             print('An error occurred while fetching customer transactions.')
+
+
+
 
 def transaction_details():
     y1= input('Enter the transactions type \n')
@@ -220,13 +321,26 @@ def transaction_details():
     except:
        print('Please enter the transactions')  
 
+# def branch_transaction_details():
+#     state= input('Enter the state for whcih you want to know the detials \n')
+#     try:
+#         get_branchtransactions_detials(state)
+       
+#     except:
+#        print('Please enter the correct state')
+
 def branch_transaction_details():
-    state= input('Enter the state for whcih you want to know the detials \n')
+    state = input('Enter the state (2 letters) for which you want to know the details:\n')
+
+    # State validation
+    if not state.isalpha() or len(state) != 2:
+        print('Please enter a valid 2-letter state code.')
+        return
+
     try:
         get_branchtransactions_detials(state)
-       
     except:
-       print('Please enter the correct state')
+        print('An error occurred while fetching branch transaction details.')
 
 # spark = SparkSession.builder.master("local[1]").appName('Credit_Card').getOrCreate()
 # if spark is not None and spark._sc is not None:
@@ -241,6 +355,12 @@ def branch_transaction_details():
 #     "user": "root",
 #     "password": "password",
 #     }
+
+                        # 2.1 Transaction Details Module
+
+#    req--2.1 --part a
+# to display the transactions made by customers living in a given zip code for a given month and year.
+#  Order by day in descending order.
 
 def get_customer_transactions(zipcode, month, year):
     print('Inside the get_customer_transaction method')
@@ -262,7 +382,9 @@ def get_customer_transactions(zipcode, month, year):
     # Show the resulting DataFrame
     df.show()
     #print('After executing the query')
-
+ 
+ # req--2.1 part b
+ #  to display the number and total values of transactions for a given type
 def get_transactions_detials(transactiontype):
     print('Inside the get_transactions_detials method')
     print(f'transactionstype={transactiontype}')
@@ -288,6 +410,9 @@ def get_transactions_detials(transactiontype):
     # Show the resulting DataFrame
     df.show()
     #print('After executing the query')
+
+# req 2.1 part c   
+#  to display the total number and total values of transactions for branches in a given state.
 
 def  get_branchtransactions_detials(state):
     print('Inside the get_branchtransactions_detials method')

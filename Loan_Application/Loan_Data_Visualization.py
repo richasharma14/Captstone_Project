@@ -262,7 +262,7 @@ plt.show()
 # plt.show()
 
 ##################################################################################################
-#Find and plot which transaction type has a high rate of transactions.
+# 3.1Find and plot which transaction type has a high rate of transactions.
 
 query = "SELECT TRANSACTION_TYPE, COUNT(*) AS TRANSACTION_COUNT \
          FROM creditcard_capstone.cdw_sapp_credit_card \
@@ -289,7 +289,7 @@ plt.xticks(rotation=45)
 plt.show()
 
 ##############################################################################
-#Find and plot which state has a high number of customers.
+# 3.2 Find and plot which state has a high number of customers.
 query = "SELECT CUST_STATE, COUNT(DISTINCT SSN) AS CUSTOMER_COUNT \
          FROM creditcard_capstone.cdw_sapp_customer \
          GROUP BY CUST_STATE \
@@ -308,7 +308,7 @@ plt.xticks(rotation=45)
 plt.show()
 
 ########################################################################################################
-# Find and plot the sum of all transactions for the top 10 customers, and which customer has the highest transaction amount.
+# 3.3 Find and plot the sum of all transactions for the top 10 customers, and which customer has the highest transaction amount.
 # Hint (use CUST_SSN).
 query = "SELECT c.FIRST_NAME, c.LAST_NAME, c.MIDDLE_NAME, c.SSN, c.CUST_EMAIL, cc.CUST_SSN, SUM(cc.TRANSACTION_VALUE) AS TOTAL_TRANSACTION \
          FROM creditcard_capstone.cdw_sapp_customer c \
